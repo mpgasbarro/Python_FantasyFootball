@@ -50,3 +50,34 @@ julios_catch_rate = get_catch_rate(julio)
 
 get_catch_rate(players)
 print(julios_catch_rate)
+
+
+class Player:
+
+  def __init__(self, name, pos, catches, targets, rushing_attempts, rushing_yds):
+    self.name = name
+    self.pos = pos
+    self.catches = catches
+    self.targets = targets
+    self.rushing_attempts = rushing_attempts
+    self.rushing_yds = rushing_yds
+
+  def catch_rate(self):
+    return self.catches/self.targets
+   
+  def yards_per_carry(self):
+    return self.rushing_yds/self.rushing_attempts
+  
+  def efficiency(self):
+    return {
+      'yards_per_carry': self.yards_per_carry(),
+      'catch_rate': self.catch_rate()
+    }
+
+
+julio = Player('Julio Jones', 'WR', 99, 157, 2, -3)
+
+print(julio.catches)
+print(julio.catch_rate())
+print(julio.yards_per_carry())
+print(julio.efficiency())
